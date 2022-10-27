@@ -116,9 +116,9 @@ export const User = styled.li`
   p{
   font-style: normal;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 21px;
   line-height: 28px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 button{

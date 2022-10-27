@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 import axios from "axios";
 
@@ -12,13 +12,13 @@ import {
   Image,
   ContainerItens,
   InputLabel,
+  P,
   Input,
   Button,
   User,
 } from "./styles";
 
-const api = axios.create({baseURL:"http://localhost:3001"})
-
+const api = axios.create({ baseURL: "http://localhost:3001" });
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -26,21 +26,26 @@ function App() {
   const inputAge = useRef();
 
   async function addNewUser() {
-    
-    const data = await api.post("/users", {
+
+    const { data: newUser } = await api.post("/users", {
       name: inputName.current.value,
       age: inputAge.current.value,
     });
-    console.log(data)
-    /*setUsers([
-      ...users,
-      {
-        id: Math.random(),
-        name: inputName.current.value,
-        age: inputAge.current.value,
-      },
-    ]);*/
+
+    setUsers([...users, newUser]);
+
+
   }
+  useEffect(() => {
+    async function fetchUsers() {
+      const { data: newUsers } = await axios.get("http://localhost:3001/users");
+
+      setUsers(newUsers);
+    }
+    fetchUsers()
+
+  }, []);
+
 
   function deleteUser(userId) {
     const newUsers = users.filter((user) => user.id !== userId);
@@ -67,9 +72,13 @@ function App() {
         <ul>
           {users.map((user) => (
             <User key={user.id}>
+
               <p>{user.name}</p> <p>{user.age}</p>
+
               <button onClick={() => deleteUser(user.id)}>
+
                 <img src={Trash} alt="lata-de-lixo" />
+
               </button>
             </User>
           ))}
