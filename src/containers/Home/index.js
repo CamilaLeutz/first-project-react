@@ -1,10 +1,10 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 
 import axios from "axios";
 
-import People from "./assets/people.svg";
-import Arrow from "./assets/arrow.svg";
-import Trash from "./assets/trash.svg";
+import People from "../../assets/people.svg";
+import Arrow from "../../assets/arrow.svg";
+
 
 import {
   Container,
@@ -12,10 +12,9 @@ import {
   Image,
   ContainerItens,
   InputLabel,
-  P,
   Input,
   Button,
-  User,
+
 } from "./styles";
 
 const api = axios.create({ baseURL: "http://localhost:3001" });
@@ -33,23 +32,6 @@ function App() {
     });
 
     setUsers([...users, newUser]);
-
-
-  }
-  useEffect(() => {
-    async function fetchUsers() {
-      const { data: newUsers } = await axios.get("http://localhost:3001/users");
-
-      setUsers(newUsers);
-    }
-    fetchUsers()
-
-  }, []);
-
-
-  function deleteUser(userId) {
-    const newUsers = users.filter((user) => user.id !== userId);
-    setUsers(newUsers);
   }
 
   return (
@@ -69,20 +51,6 @@ function App() {
           Cadastrar <img alt="seta" src={Arrow} />
         </Button>
 
-        <ul>
-          {users.map((user) => (
-            <User key={user.id}>
-
-              <p>{user.name}</p> <p>{user.age}</p>
-
-              <button onClick={() => deleteUser(user.id)}>
-
-                <img src={Trash} alt="lata-de-lixo" />
-
-              </button>
-            </User>
-          ))}
-        </ul>
       </ContainerItens>
     </Container>
   );
