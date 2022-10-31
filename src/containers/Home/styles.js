@@ -44,7 +44,7 @@ export const H1 = styled.h1`
   line-height: 40px;
   text-align: center;
   color: #ffffff;
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 `;
 
 export const InputLabel = styled.p`
@@ -78,7 +78,7 @@ export const Input = styled.input`
 export const Button = styled(Link)`
   width: 342px;
   height: 74px;
-  margin-top: 70px;
+  margin-top: 50px;
 
   background: rgba(0, 0, 0, 0.8);
   border-radius: 14px;
