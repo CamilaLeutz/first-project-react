@@ -47,7 +47,7 @@ function App() {
         <InputLabel>Idade</InputLabel>
         <Input ref={inputAge} placeholder="Idade"></Input>
 
-        <Button onClick={addNewUser}>
+        <Button to="/usuarios" onClick={addNewUser}>
           Cadastrar <img alt="seta" src={Arrow} />
         </Button>
 
