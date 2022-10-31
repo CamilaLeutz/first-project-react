@@ -3,6 +3,8 @@ import Background from "../../assets/background1.svg";
 
 import { Link } from "react-router-dom"
 
+
+
 export const Container = styled.div`
   background: url("${Background}");
   background-size: cover;
@@ -37,15 +39,6 @@ export const ContainerItens = styled.div`
   min-height: 100vh;
 `;
 
-export const H1 = styled.h1`
-  font-style: normal;
-  font-weight: 700;
-  font-size: 34px;
-  line-height: 40px;
-  text-align: center;
-  color: #ffffff;
-  margin-bottom: 40px;
-`;
 
 export const InputLabel = styled.p`
   letter-spacing: -0.408px;
