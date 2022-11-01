@@ -1,11 +1,6 @@
 import styled from "styled-components";
 import Background from "../../assets/background1.svg";
 
-import { Link } from "react-router-dom"
-
-
-
-
 export const Container = styled.div`
   background: url("${Background}");
   background-size: cover;
@@ -51,7 +46,7 @@ export const Input = styled.input`
   outline: none;
 `;
 
-export const Button = styled(Link)`
+export const Button = styled.button`
   width: 342px;
   height: 74px;
   margin-top: 50px;
@@ -81,4 +76,3 @@ export const Button = styled(Link)`
     opacity: 0.5;
   }
 `;
-

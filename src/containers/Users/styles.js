@@ -1,9 +1,6 @@
 import styled from "styled-components";
 import Background from "../../assets/background.svg";
 
-import { Link } from "react-router-dom"
-
-
 export const Container = styled.div`
   background: url("${Background}");
   background-size: cover;
@@ -19,42 +16,6 @@ export const Container = styled.div`
 
 export const Image = styled.img`
   margin-top: 30px;
-`;
-
-export const Button = styled(Link)`
-  width: 342px;
-  height: 74px;
-  margin-top: 120px;
-
-  background: transparent;
-  border-radius: 14px;
-  border: 1px solid #FFFFFF;
-
-  font-style: normal;
-  font-weight: 700;
-  font-size: 17px;
-  line-height: 28px;
-  cursor: pointer;
-
-  color: #ffffff;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-
-
-  &:hover {
-    opacity: 0.8;
-  }
-
-  &:active {
-    opacity: 0.5;
-  }
-
-  img{
-    transform: rotateY(180deg);
-  }
 `;
 
 export const User = styled.li`

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import {useHistory} from "react-router-dom"
 import axios from "axios";
 
 import Avatar from "../../assets/avatar.svg";
@@ -8,13 +8,15 @@ import Trash from "../../assets/trash.svg";
 
 import H1 from "../../components/Title";
 import ContainerItens from "../../components/ContainerItens";
+import Button from "../../components/Button"
 
-import { Container, Image, Button, User } from "./styles";
+import { Container, Image, User } from "./styles";
 
-const api = axios.create({ baseURL: "http://localhost:3001" });
+//const api = axios.create({ baseURL: "http://localhost:3001" }); // possivelmente o erro esta aqui
 
 function Users() {
   const [users, setUsers] = useState([]);
+  const history = useHistory()
 
   useEffect(() => {
     async function fetchUsers() {
@@ -31,6 +33,9 @@ function Users() {
     setUsers(newUsers);
   }
 
+  function goBackPage(){
+    history.push("/");
+  }
   return (
     <Container>
       <Image alt="logo-imagem" src={Avatar}></Image>
@@ -49,7 +54,7 @@ function Users() {
           ))}
         </ul>
 
-        <Button to="/">
+        <Button isBack={true} onClick={goBackPage}>
           <img alt="seta" src={Arrow} /> Voltar
         </Button>
       </ContainerItens>

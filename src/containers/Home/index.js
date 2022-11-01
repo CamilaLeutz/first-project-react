@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-
+import {useHistory} from "react-router"
 import axios from "axios";
 
 import People from "../../assets/people.svg";
@@ -7,20 +7,21 @@ import Arrow from "../../assets/arrow.svg";
 
 import H1 from "../../components/Title"
 import ContainerItens from "../../components/ContainerItens";
+import Button from "../../components/Button"
 
 import {
   Container,
   Image,
   InputLabel,
   Input,
-  Button,
-
 } from "./styles";
+
 
 const api = axios.create({ baseURL: "http://localhost:3001" });
 
 function App() {
   const [users, setUsers] = useState([]);
+  const history = useHistory();
   const inputName = useRef();
   const inputAge = useRef();
 
@@ -32,6 +33,8 @@ function App() {
     });
 
     setUsers([...users, newUser]);
+    
+    history.push("/usuarios")
   }
 
   return (
@@ -47,8 +50,8 @@ function App() {
         <InputLabel>Idade</InputLabel>
         <Input ref={inputAge} placeholder="Idade"></Input>
 
-        <Button to="/usuarios" onClick={addNewUser}>
-          Cadastrar <img alt="seta" src={Arrow} />
+        <Button onClick={addNewUser}>
+          Cadastrar <img alt="seta" src={Arrow} /> {/**/ }
         </Button>
 
       </ContainerItens>
